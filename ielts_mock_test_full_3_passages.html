@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS READING MOCK TEST - Ms Lê Hằng English</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    :root {
+      --primary: #1e88e5;
+      --primary-dark: #1565c0;
+      --pink: #ff4d79;
+      --teal: #00cba9;
+      --green: #10b981;
+      --red: #ef4444;
+      --text: #2d3748;
+      --muted: #64748b;
+      --card: #ffffff;
+      --card-shadow: 0 10px 25px rgba(74, 126, 185, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Nunito', sans-serif; }
+
+    /* HỆ THỐNG NỀN XANH TRỜI PASTEL + MẶT TRỜI THEO ẢNH MẪU */
+    body {
+      background: linear-gradient(180deg, #dcf2ff 0%, #c4e4fe 45%, #dff1fd 80%, #edf7ff 100%);
+      min-height: 100vh;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 14px 16px 50px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Đồ họa nền: Mặt trời vàng tỏa nắng dịu góc trái */
+    .bg-sun {
+      position: fixed;
+      top: 30px;
+      left: -45px;
+      width: 190px;
+      height: 190px;
+      background: radial-gradient(circle, #ffeaa7 35%, rgba(255, 234, 167, 0.6) 55%, rgba(255, 234, 167, 0) 75%);
+      border-radius: 50%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Đồ họa nền: Mây & máy bay lơ lửng */
+    .bg-cloud-plane {
+      position: fixed;
+      top: 65px;
+      right: 12%;
+      font-size: 22px;
+      opacity: 0.65;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatPlane 20s linear infinite;
+    }
+    @keyframes floatPlane {
+      from { transform: translateX(100px); }
+      to { transform: translateX(-100vw); }
+    }
+
+    /* Đồ họa nền: Tòa nhà thành phố mờ nhạt ở chân trang */
+    .bg-city-skyline {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 85px;
+      background: repeating-linear-gradient(90deg, 
+        rgba(186, 219, 248, 0.45) 0px, rgba(186, 219, 248, 0.45) 28px,
+        rgba(164, 205, 242, 0.45) 28px, rgba(164, 205, 242, 0.45) 60px,
+        rgba(202, 230, 252, 0.45) 60px, rgba(202, 230, 252, 0.45) 90px
+      );
+      clip-path: polygon(0% 45%, 5% 45%, 5% 20%, 12% 20%, 12% 60%, 18% 60%, 18% 30%, 25% 30%, 25% 55%, 32% 55%, 32% 15%, 40% 15%, 40% 50%, 48% 50%, 48% 25%, 55% 25%, 55% 65%, 62% 65%, 62% 35%, 70% 35%, 70% 18%, 78% 18%, 78% 50%, 85% 50%, 85% 28%, 92% 28%, 92% 60%, 100% 60%, 100% 100%, 0% 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 1400px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Top Bar */
+    .top-bar {
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: var(--card-shadow);
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border: 2px solid #ffffff;
+    }
+    .badge {
+      font-weight: 800;
+      font-size: 13.5px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge-pink { background: var(--pink); }
+    .badge-teal { background: var(--teal); }
+    .hotline-banner {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 700;
+      color: #334155;
+      text-align: center;
+    }
+    .hotline-banner b { color: #e11d48; }
+
+    /* Hero / Timer */
+    .hero-card {
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: var(--card-shadow);
+      padding: 14px 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border: 2px solid #ffffff;
+    }
+    .hero-title { font-size: 19px; font-weight: 900; color: #1e88e5; }
+    .hero-sub { font-size: 12.5px; font-weight: 700; color: var(--muted); }
+    .timer-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fdf4ff;
+      border: 2px solid #f472b6;
+      padding: 5px 14px;
+      border-radius: 50px;
+    }
+    .timer-txt { font-size: 19px; font-weight: 900; color: #be185d; }
+    .btn-timer {
+      background: #ec4899;
+      color: #fff;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .progress-bar-wrap { width: 100%; background: #f1f5f9; height: 8px; border-radius: 999px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #ec4899, #8b5cf6, #00cba9); transition: width 0.3s; }
+
+    /* Tabs */
+    .tab-bar { display: flex; gap: 8px; }
+    .tab-btn {
+      flex: 1;
+      padding: 10px 14px;
+      border: none;
+      background: var(--card);
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 13.5px;
+      color: var(--muted);
+      cursor: pointer;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: #1e88e5;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(30, 136, 229, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* Split Screen */
+    .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; height: calc(100vh - 230px); min-height: 550px; }
+    .pane {
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: var(--card-shadow);
+      overflow-y: auto;
+      padding: 20px;
+      border: 2px solid #ffffff;
+      scroll-behavior: smooth;
+    }
+    .pane::-webkit-scrollbar { width: 7px; }
+    .pane::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 8px; }
+
+    /* Passage Styles */
+    .passage-head { border-bottom: 2px dashed #e2e8f0; padding-bottom: 10px; margin-bottom: 14px; }
+    .p-title { font-size: 20px; font-weight: 900; color: #1e88e5; text-transform: uppercase; }
+    .p-sub { font-size: 13px; font-style: italic; color: #64748b; margin-top: 3px; }
+    .para-box {
+      margin-bottom: 14px;
+      line-height: 1.68;
+      font-size: 14.5px;
+      color: #334155;
+      background: #fbfdff;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border-left: 4px solid #60a5fa;
+      border-top: 1px solid #f1f5f9;
+      border-right: 1px solid #f1f5f9;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .para-lbl { font-weight: 900; color: #1e88e5; margin-right: 6px; }
+    .btn-trans {
+      margin-top: 8px;
+      background: #fdf2f8;
+      border: 1px solid #fbcfe8;
+      color: #db2777;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .trans-box {
+      display: none;
+      margin-top: 8px;
+      padding: 10px 12px;
+      background: #fff1f2;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.55;
+      color: #9f1239;
+      border-left: 3px solid #f43f5e;
+    }
+    .flash-target { background: #fde047 !important; color: #000 !important; border-radius: 4px; }
+    
+    /* ========================================================= */
+    /* HIGHLIGHT TỐI ƯU: TUYỆT ĐỐI KHÔNG TĂNG KHOẢNG CÁCH CHỮ   */
+    /* ========================================================= */
+    .user-highlighted {
+      background-color: #ddd6fe !important;
+      color: inherit !important;
+      font-weight: inherit !important;     /* Giữ nguyên độ dày nét chữ để không dồn khoảng cách */
+      letter-spacing: inherit !important; /* Không làm giãn khoảng cách giữa các chữ */
+      padding: 0 !important;              /* Không đệm chiều ngang để chữ không bị đẩy xê dịch */
+      margin: 0 !important;
+      border-radius: 3px;
+      cursor: pointer;
+      display: inline;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    /* Exercise Styles */
+    .sec-banner {
+      background: linear-gradient(90deg, #ede9fe, #fae8ff);
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #6b21a8;
+      margin-bottom: 12px;
+      border-left: 4px solid #a855f7;
+    }
+    .q-card {
+      background: #fff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      transition: all 0.2s;
+    }
+    .q-top { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+    .q-num {
+      font-weight: 900;
+      color: #fff;
+      background: #1e88e5;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .q-txt { flex: 1; font-size: 14px; font-weight: 700; color: #1e293b; line-height: 1.4; }
+    
+    .sel-box, .inp-box {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 2px solid #cbd5e1;
+      font-size: 13.5px;
+      font-weight: 700;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .sel-box:focus, .inp-box:focus { border-color: #1e88e5; }
+    .sel-box.correct, .inp-box.correct { border-color: #22c55e; background: #f0fdf4; color: #166534; }
+    .sel-box.wrong, .inp-box.wrong { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+    
+    .fill-row { display: flex; gap: 6px; margin-top: 6px; }
+    .btn-chk {
+      background: #1e88e5;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 12.5px;
+      cursor: pointer;
+    }
+
+    /* Khung giải thích chi tiết chuẩn Pastel */
+    .detailed-exp-card {
+      display: none;
+      background: #ffffff;
+      border: 2px solid #fed7aa;
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-top: 12px;
+      box-shadow: 0 4px 16px rgba(249, 115, 22, 0.08);
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .exp-main-title {
+      color: #c2410c;
+      font-size: 15px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .btn-loc {
+      background: #7c3aed;
+      color: #fff;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-loc:hover { background: #6d28d9; transform: scale(1.05); }
+
+    .exp-trans-quote {
+      background: #fffbeb;
+      border-radius: 10px;
+      border-left: 5px solid #f59e0b;
+      padding: 10px 14px;
+      font-size: 13.5px;
+      color: #78350f;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .exp-trans-quote b { color: #b45309; }
+
+    .exp-step-title {
+      font-size: 13.8px;
+      font-weight: 800;
+      color: #b45309;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .options-breakdown-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      margin-bottom: 12px;
+    }
+    .option-chip {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #334155;
+    }
+    .option-chip b { color: #2563eb; }
+    .option-chip.highlight b { color: #059669; }
+
+    .badge-why-correct {
+      background: #dcfce7;
+      color: #15803d;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .badge-why-wrong {
+      background: #fee2e2;
+      color: #b91c1c;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .exp-bullet-desc {
+      font-size: 13px;
+      color: #334155;
+      line-height: 1.55;
+      margin: 4px 0 12px 16px;
+    }
+    .exp-bullet-desc li { margin-bottom: 4px; }
+    .syn-tag {
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 11px;
+      display: inline-block;
+    }
+
+    .cambridge-section {
+      border-top: 1.5px dashed #fed7aa;
+      padding-top: 10px;
+      margin-top: 8px;
+    }
+    .cambridge-title { font-size: 13.5px; font-weight: 800; color: #ea580c; margin-bottom: 4px; }
+    .cambridge-guide-text { font-size: 12.5px; color: #475569; line-height: 1.4; margin-bottom: 8px; }
+    .cambridge-btn-group { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 8px; }
+    .cambridge-pill-btn {
+      background: linear-gradient(90deg, #ff5770 0%, #22c55e 100%);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 3px 8px rgba(34, 197, 94, 0.2);
+      transition: all 0.2s;
+    }
+    .cambridge-pill-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 12px rgba(255, 87, 112, 0.35); }
+
+    /* Glossary */
+    .glossary-wrap { margin-top: 16px; background: #f8fafc; border-radius: 12px; padding: 12px; border: 1.5px solid #e2e8f0; }
+    .glossary-tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .glossary-tbl th { background: #ede9fe; color: #4c1d95; text-align: left; padding: 6px; font-weight: 800; }
+    .glossary-tbl td { padding: 5px 6px; border-bottom: 1px solid #e2e8f0; }
+
+    /* Footer Promo Banner */
+    .footer-promo {
+      background: linear-gradient(135deg, #f06292 0%, #b258cf 45%, #2575fc 100%);
+      border-radius: 24px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #fff;
+      margin-top: 6px;
+      box-shadow: 0 10px 25px rgba(178, 88, 207, 0.25);
+    }
+    .circle-icon {
+      width: 44px; height: 44px; border-radius: 50%; background: #ff5982;
+      display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;
+    }
+    .pill-badge {
+      background: #fff; color: #1e88e5; font-weight: 900; font-size: 13.5px;
+      padding: 2px 12px; border-radius: 999px; display: inline-flex; margin-left: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .split-grid { grid-template-columns: 1fr; height: auto; }
+      .pane { height: 460px; }
+      .hotline-banner { display: none; }
+      .footer-promo { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Đồ họa nền mặt trời & máy bay theo mẫu ảnh -->
+  <div class="bg-sun"></div>
+  <div class="bg-cloud-plane">✈️ ☁️</div>
+  <div class="bg-city-skyline"></div>
+
+  <div class="app-shell">
+
+    <!-- 1. HEADER STATUS -->
+    <header class="top-bar">
+      <div class="badge badge-pink" id="scoreBadge">★ 0/40</div>
+      <div class="hotline-banner">
+        <span>PH HS đăng kí học tiếng anh Khối 1 đến 12, IELTS vui lòng liên hệ <b>Ms Lê Hằng English</b> —</span>
+        <b>☎ Zalo: 0584 965 348</b>
+        <span>— Online + Offline tại Linh Đàm!</span>
+      </div>
+      <div class="badge badge-teal" id="countBadge">0/40 đã làm</div>
+    </header>
+
+    <!-- 2. HERO / TIMER -->
+    <section class="hero-card">
+      <div>
+        <div class="hero-title">🎯 IELTS READING MOCK TEST · MS LÊ HẰNG ENGLISH</div>
+        <div class="hero-sub">Hệ thống bài tập web tương tác · Chấm tự động & Giải thích chi tiết 9.0</div>
+      </div>
+      <div class="timer-box">
+        <span>⏳</span>
+        <span class="timer-txt" id="timerTxt">20:00</span>
+        <button class="btn-timer" id="btnTimer" onclick="toggleTimer()">BẮT ĐẦU</button>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+    </section>
+
+    <!-- 3. TABS CHUYỂN PASSAGE -->
+    <nav class="tab-bar">
+      <button class="tab-btn active" id="tab1-btn" onclick="switchTab(1)">🌍 Passage 1: Continents & Evolution (Q1-13)</button>
+      <button class="tab-btn" id="tab2-btn" onclick="switchTab(2)">🥱 Passage 2: Demystifying Yawn (Q14-26)</button>
+      <button class="tab-btn" id="tab3-btn" onclick="switchTab(3)">🔬 Passage 3: Terminology in Science (Q27-40)</button>
+    </nav>
+
+    <!-- 4. SPLIT SCREEN (BÀI ĐỌC TRÁI - BÀI TẬP PHẢI) -->
+    <div class="split-grid">
+      <div class="pane" id="passagePane">
+        <div id="p-content-1" style="display:block;">
+  <div class="passage-head"><h1 class="p-title">THE FORMATION OF CONTINENTS AND THE EVOLUTION OF SPECIES</h1><p class="p-sub">Sự hình thành các lục địa và quá trình tiến hóa của các loài sinh vật</p></div>
+  <div class="para-box" id="p1-A">
+    <span class="para-lbl">[Paragraph A]</span>
+    <span>The fact that there was once a Pangean supercontinent, a Panthalassa Ocean, and a Tethys Ocean, has profound implications for the evolution of multicellular life on Earth These considerations were unknown to the scientists of the 19th century — making their scientific deductions even more remarkable. Quite independently of each other, Charles Darwin and his young contemporary Alfred Russel Wallace reached the conclusion that life had evolved by natural selection. Wallace later wrote in My Life of his own inspiration.</span>
+    <br><button class="btn-trans" onclick="toggleT('p1-A-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p1-A-tr">Sự thật về sự tồn tại của siêu lục địa Pangea, đại dương Panthalassa và đại dương Tethys có ý nghĩa sâu sắc đối với sự tiến hóa của sinh vật đa bào trên Trái Đất. Những yếu tố này hoàn toàn chưa được các nhà khoa học thế kỷ 19 biết tới — điều này càng làm cho những suy luận khoa học của họ trở nên đáng nể phục hơn. Hoàn toàn độc lập với nhau, Charles Darwin và người đồng nghiệp trẻ đương thời Alfred Russel Wallace đã đi đến kết luận rằng sự sống tiến hóa thông qua chọn lọc tự nhiên. Wallace sau này đã viết trong cuốn 'My Life' về nguồn cảm hứng của chính mình.</div>
+  </div>
+  <div class="para-box" id="p1-B">
+    <span class="para-lbl">[Paragraph B]</span>
+    <span>Why do some species die and some live? The answer was clearly that on the whole the best fit lived. From the effects of disease, the most-healthy escaped; from enemies the strongest, the swiftest or the most cunning; from famine the best hunters. Then, it suddenly flashed on me that this self-acting process would improve the race, because in every generation the inferior would inevitably be killed off and the superior would remain, that is, the fittest would survive.</span>
+    <br><button class="btn-trans" onclick="toggleT('p1-B-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p1-B-tr">Tại sao một số loài chết đi và một số loài sống sót? Câu trả lời rõ ràng là nhìn chung những cá thể thích nghi tốt nhất sẽ sống. Thoát khỏi tác động của dịch bệnh là những cá thể khỏe mạnh nhất; thoát khỏi kẻ thù là những kẻ mạnh nhất, nhanh nhất hoặc xảo quyệt nhất; thoát khỏi nạn đói là những kẻ săn mồi cừ khôi nhất. Rồi đột nhiên tôi nhận ra rằng quá trình tự vận hành này sẽ cải thiện giống nòi, bởi vì trong mỗi thế hệ, những cá thể kém cỏi chắc chắn sẽ bị đào thải và những cá thể vượt trội sẽ ở lại, tức là kẻ thích nghi nhất sẽ sinh tồn.</div>
+  </div>
+  <div class="para-box" id="p1-C">
+    <span class="para-lbl">[Paragraph C]</span>
+    <span>Both Darwin's and Wallace's ideas about natural selection had been influenced by the essays of Thomas Malthus in his Principles of Population. Their conclusions, however, had been the direct result of their personal observation of animals and plants in widely separated geographic locations: Darwin from his experiences during the voyage of the Beagle, and particularly during the ship's visit to the Galapagos Islands in the East Pacific in 1835; Wallace during his years of travel in the Amazon Basin and in the Indonesia-Australian Archipelago in the 1850s.</span>
+    <br><button class="btn-trans" onclick="toggleT('p1-C-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p1-C-tr">Cả tư tưởng của Darwin và Wallace về chọn lọc tự nhiên đều chịu ảnh hưởng bởi các bài tiểu luận của Thomas Malthus trong tác phẩm 'Principles of Population'. Tuy nhiên, kết luận của họ là kết quả trực tiếp từ việc quan sát thực tế động thực vật ở các vị trí địa lý cách xa nhau: Darwin từ chuyến hải hành trên tàu Beagle (đặc biệt là quần đảo Galapagos năm 1835); Wallace qua những năm tháng du hành ở lưu vực sông Amazon và quần đảo Indonesia - Úc trong thập niên 1850.</div>
+  </div>
+  <div class="para-box" id="p1-D">
+    <span class="para-lbl">[Paragraph D]</span>
+    <span>Darwin had been documenting his ideas on natural selection for many years when he received a paper on this same subject from Wallace, who asked for Darwin's opinion and help in getting it published. In July 1858, Charles Lyell and J. D Hooker, close friends of Darwin, pressed Darwin to present his conclusions so that he would not lose priority to an unknown naturalist. Presiding over the hastily called but now historic meeting of the Linnean Society in London, Lyell and Hooker explained to the distinguished members how 'these two gentlemen' (who were absent: Wallace was abroad, and Darwin chose not to attend), had 'independently and unknown to one another, conceived the same very ingenious theory'</span>
+    <br><button class="btn-trans" onclick="toggleT('p1-D-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p1-D-tr">Darwin đã ghi chép các ý tưởng về chọn lọc tự nhiên trong nhiều năm thì bất ngờ nhận được bài báo cùng chủ đề từ Wallace, người đã nhờ Darwin cho ý kiến và giúp đỡ xuất bản. Tháng 7 năm 1858, Charles Lyell và J. D Hooker (bạn thân của Darwin) đã thúc giục Darwin trình bày các kết luận của mình để không bị mất quyền ưu tiên tác quyền vào tay một nhà tự nhiên học chưa tên tuổi. Chủ trì cuộc họp lịch sử của Hội Linnean tại London, Lyell và Hooker đã giải thích trước các học giả cách mà 'hai quý ông này' dù độc lập và không hề biết về nhau, đã cùng thai nghén ra một học thuyết vô cùng tài tình.</div>
+  </div>
+  <div class="para-box" id="p1-E">
+    <span class="para-lbl">[Paragraph E]</span>
+    <span>Both Darwin and Wallace had realized that the anomalous distribution of species in particular regions had profound evolutionary significance. Subsequently, Darwin spent the rest of his days in almost total seclusion thinking and writing mainly about the origin of species. In contrast, Wallace applied himself to the science of biogeography, the study of the pattern and distribution of species, and its significance, resulting in the publication of a massive two volume work the Geographical Distribution of Animals in 1876.</span>
+    <br><button class="btn-trans" onclick="toggleT('p1-E-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p1-E-tr">Cả Darwin và Wallace đều nhận ra rằng sự phân bố bất thường của các loài ở các vùng cụ thể có ý nghĩa tiến hóa to lớn. Sau đó, Darwin dành phần đời còn lại sống ẩn dật, tập trung suy ngẫm và viết sách về nguồn gốc các loài. Ngược lại, Wallace dấn thân vào ngành địa lý sinh học (biogeography), nghiên cứu quy luật phân bố của sinh vật, dẫn tới việc xuất bản bộ sách đồ sộ hai tập 'Geographical Distribution of Animals' vào năm 1876.</div>
+  </div>
+  <div class="para-box" id="p1-F">
+    <span class="para-lbl">[Paragraph F]</span>
+    <span>Wallace was a gentle and modest man, but also persistent and quietly courageous. He spent years working in the most arduous possible climates and terrains, particularly in the Malay Archipelago, he made patient and detailed zoological observations and collected huge numbers of specimens for museums and collectors - which is how he made a living. One result of his work was the conclusion that there is a distinct faunal boundary, called 'Wallace's line,' between an Asian realm of animals in Java, Borneo and the Philippines and an Australian realm in New Guinea and Australia. In essence this boundary posed a difficult question: How on Earth did plants and animals with a clear affinity to the Northern Hemisphere meet with their Southern Hemispheric counterparts along such a distinct Malaysian demarcation zone? Wallace was uncertain about demarcation on one particular island - Celebes, a curiously shaped place that is midway between the two groups. Initially he assigned its flora-fauna to the Australian side of the line, but later he transferred it to the Asian side. Today we know the reason for his dilemma. 200 MYA East and West Celebes were islands with their own natural history lying on opposite sides of the Tethys Ocean. They did not collide until about 15 MYA. The answer to the main question is that Wallace's Line categorizes Laurasia-derived flora-fauna (the Asian) and Gondwana-derived flora-fauna (the Australian), fauna that had evolved on opposing shores of the Tethys. The closure of the Tethys Ocean today is manifested by the ongoing collision of Australia/New Guinea with Indochina/Indonesia and the continuing closure of the Mediterranean Sea—a remnant of the Western Tethys Ocean.</span>
+    <br><button class="btn-trans" onclick="toggleT('p1-F-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p1-F-tr">Wallace là người khiêm tốn nhưng kiên trì và dũng cảm. Ông làm việc nhiều năm trong điều kiện khắc nghiệt ở Quần đảo Mã Lai, thu thập vô số mẫu vật. Một kết quả nổi bật là kết luận về ranh giới động vật rõ rệt mang tên 'Đường Wallace' ngăn cách khu hệ động vật châu Á (Java, Borneo, Philippines) và châu Úc (New Guinea, Úc). Ranh giới này đặt ra câu hỏi hóc búa về sự giao thoa sinh vật giữa hai bán cầu. Ngày nay ta biết rằng Đường Wallace phân chia hệ sinh vật có nguồn gốc từ Laurasia (châu Á) và Gondwana (châu Úc) vốn tiến hóa ở hai bờ đối diện của đại dương Tethys cổ đại.</div>
+  </div>
+  <div class="para-box" id="p1-G">
+    <span class="para-lbl">[Paragraph G]</span>
+    <span>In his ORIGIN OF CONTINENTS AND OCEANS, Wegener quoted at length from Wallace's Geographical Distribution of Animals. According to Wegener's reading, Wallace had identified three clear divisions of Australian animals, which supported his own theory of continental displacement. Wallace had shown that animals long established in southwestern Australia had an affinity with animals in South Africa, Madagascar, India, and Ceylon, but did not have an affinity with those in Asia. Wallace also showed that Australian marsupials and monotremes are clearly related to those In South America, the Moluccas, and various Pacific islands, and that none are found in neighboring Indonesia. From this and related data, Wegener concluded that the then broadly accepted 'landbridge' theory could not account for this distribution of animals and that only his theory of continental drift could explain it.</span>
+    <br><button class="btn-trans" onclick="toggleT('p1-G-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p1-G-tr">Trong cuốn 'Nguồn gốc các lục địa và đại dương', Wegener đã trích dẫn nhiều công trình của Wallace. Wallace chỉ ra động vật ở tây nam nước Úc có mối liên hệ gần gũi (affinity) với động vật ở Nam Phi, Madagascar và Ấn Độ chứ không phải châu Á. Thú có túi và thú đẻ trứng ở Úc cũng liên quan đến Nam Mỹ. Từ dữ liệu này, Wegener kết luận rằng lý thuyết 'cầu lục địa' (landbridge) đang được chấp nhận rộng rãi thời bấy giờ không thể giải thích được sự phân bố này, mà chỉ có lý thuyết trôi dạt lục địa (continental drift) của ông mới giải thích thỏa đáng.</div>
+  </div>
+  <div class="para-box" id="p1-H">
+    <span class="para-lbl">[Paragraph H]</span>
+    <span>The theory that Wegener dismissed in preference to his own proposed that plants and animals had once migrated across now-submerged intercontinental landbridges. In 1885, one of Europe's leading geologists, Eduard Suess, theorized that as the rigid Earth cools, its upper crust shrinks and wrinkles like the withering skin of an aging apple. He suggested that the planet's seas and oceans now fill the wrinkles between once-contiguous plateaus.</span>
+    <br><button class="btn-trans" onclick="toggleT('p1-H-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p1-H-tr">Lý thuyết mà Wegener bác bỏ cho rằng sinh vật từng di cư qua các cây cầu đất nối giữa các lục địa (nay đã chìm dưới biển). Năm 1885, nhà địa chất học hàng đầu châu Âu Eduard Suess đưa ra giả thuyết rằng khi Trái Đất nguội đi, lớp vỏ bên trên co lại và nhăn nheo như lớp da héo quắt của một quả táo già (withering skin of an aging apple), và các đại dương hiện nay lấp đầy những nếp nhăn đó.</div>
+  </div>
+  <div class="para-box" id="p1-I">
+    <span class="para-lbl">[Paragraph I]</span>
+    <span>Today, we know that we live on a dynamic Earth with shifting, colliding and separating tectonic plates, not a 'withering skin', and the main debate in the field of biogeography has shifted. The discussion now concerns 'dispersalism' versus 'vicarianism' unrestricted radiation of species on the one hand and the development of barriers to migration on the other. Dispersion is a short-term phenomenon—the daily or seasonal migration of species and their radiation to the limits of their natural environment on an extensive and continuous landmass. Vicarian evolution, however, depends upon the separation and isolation of a variety of species within the confines of natural barriers in the form of islands, lakes, or shallow seas—topographical features that take a long time to develop.</span>
+    <br><button class="btn-trans" onclick="toggleT('p1-I-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p1-I-tr">Ngày nay, chúng ta biết rằng mình đang sống trên một Trái Đất vận động không ngừng với các mảng kiến tạo (tectonic plates) dịch chuyển, va chạm và tách rời, chứ không phải một 'lớp da héo quắt'. Tranh luận trong địa lý sinh học chuyển sang hai trường phái: 'thuyết phát tán' (dispersalism) và 'thuyết chia cắt cách ly' (vicarianism) - phụ thuộc vào rào cản tự nhiên hình thành qua thời gian dài địa chất.</div>
+  </div>
+</div>
+<div id="p-content-2" style="display:none;">
+  <div class="passage-head"><h1 class="p-title">DEMYSTIFYING YAWN</h1><p class="p-sub">Nghiên cứu khoa học thần kinh giải mã hiện tượng ngáp ở con người và động vật</p></div>
+  <div class="para-box" id="p2-A">
+    <span class="para-lbl">[Paragraph A]</span>
+    <span>When a scientist began to study yawning in the 1980s, it was difficult to convince some of his research students of the merits of 'yawning science.' Although it may appear quirky, his decision to study yawning was a logical extension to human beings of his research in developmental neuroscience, reported in such papers as 'Wing-flapping during Development and Evolution.' As a neurobehavioral problem, there is not much difference between the wing-flapping of birds and the face and body flapping of human yawners.</span>
+    <br><button class="btn-trans" onclick="toggleT('p2-A-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p2-A-tr">Khi các nhà khoa học bắt đầu nghiên cứu hiện tượng ngáp vào thập niên 1980, việc thuyết phục sinh viên về giá trị học thuật của đề tài này gặp không ít trở ngại. Dù có vẻ kỳ lạ, việc nghiên cứu cái ngáp thực chất là sự mở rộng hợp lý từ các nghiên cứu thần kinh học phát triển (như đề tài vỗ cánh ở chim non). Dưới góc độ hành vi thần kinh, cử động vỗ cánh của loài chim và phản xạ ngáp toàn thân ở con người có rất nhiều điểm tương đồng.</div>
+  </div>
+  <div class="para-box" id="p2-B">
+    <span class="para-lbl">[Paragraph B]</span>
+    <span>Yawning is an ancient, primitive act. Humans do it even before they are born, opening wide in the womb. Some snakes unhinge their jaws to do it. One species of penguins yawns as part of mating. Only now are researchers beginning to understand why we yawn, when we yawn and why we yawn back. A professor of cognitive neuroscience at Drexel University in Philadelphia, Steven Platek, studies the act of contagious yawning, something done only by people and other primates.</span>
+    <br><button class="btn-trans" onclick="toggleT('p2-B-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p2-B-tr">Ngáp là một hành vi nguyên thủy, cổ xưa xuất hiện từ rất sớm. Thai nhi trong bụng mẹ đã bắt đầu ngáp, một số loài rắn mở rộng hàm để ngáp, và một loài chim cánh cụt dùng cái ngáp như một phần của nghi thức giao phối. Các nhà khoa học thần kinh nhận thức, tiêu biểu là Giáo sư Steven Platek, đang tìm hiểu hiện tượng ngáp lây lan—một phản xạ chỉ thấy ở người và các loài linh trưởng bậc cao.</div>
+  </div>
+  <div class="para-box" id="p2-C">
+    <span class="para-lbl">[Paragraph C]</span>
+    <span>In his first experiment, he used a psychological test to rank people on their empathic feelings. He found that participants who did not score high on compassion did not yawn back. 'We literally had people saying, 'Why am I looking at people yawning?— Professor Platek said. 'It just had no effect.'</span>
+    <br><button class="btn-trans" onclick="toggleT('p2-C-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p2-C-tr">Trong thí nghiệm đầu tiên, Platek sử dụng bài kiểm tra tâm lý để xếp hạng mức độ thấu cảm của người tham gia. Kết quả cho thấy những người không đạt điểm cao về lòng trắc ẩn thì không ngáp đáp lại. Thậm chí có người còn thẳng thừng thắc mắc: 'Tại sao tôi lại phải nhìn người khác ngáp cơ chứ?', cho thấy hình ảnh đó hoàn toàn không tác động đến họ.</div>
+  </div>
+  <div class="para-box" id="p2-D">
+    <span class="para-lbl">[Paragraph D]</span>
+    <span>For his second experiment, he put 10 students in a magnetic resonance imaging machine as they watched video tapes of people yawning. When the students watched the videos, the part of the brain which reacted was the part scientists believe controls empathy — the posterior cingulate, in the brain's middle rear.' I don't know if it's necessarily that nice people yawn more, but I think it's a good indicator of a state of mind,' said Professor Platek. 'It's also a good indicator if you're empathizing with me and paying attention.'</span>
+    <br><button class="btn-trans" onclick="toggleT('p2-D-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p2-D-tr">Ở thí nghiệm thứ hai, 10 sinh viên được chụp cộng hưởng từ (fMRI) khi xem video người khác ngáp. Vùng não phản ứng chính là vỏ não đai sau (posterior cingulate) - khu vực mà giới khoa học tin rằng kiểm soát sự thấu cảm. Platek nhận định phản xạ này là chỉ dấu đáng tin cậy cho thấy đối phương đang đồng cảm và chú ý đến mình.</div>
+  </div>
+  <div class="para-box" id="p2-E">
+    <span class="para-lbl">[Paragraph E]</span>
+    <span>His third experiment is studying yawning in those with brain disorders, such as autism and schizophrenia, in which victims have difficulty connecting emotionally with others. A psychology professor at the University of Maryland, Robert Provine, is one of the few other researchers into yawning. He found the basic yawn lasts about six seconds and they come in bouts with an interval of about 68 seconds. Men and women yawn or half-yawn equally often, but men are significantly less likely to cover their mouths which may indicate complex distinction in genders.' A watched yawner never yawns,' Professor Provine said. However, the physical root of yawning remains a mystery. Some researchers say it's coordinated within the hypothalamus of the brain, the area that also controls breathing.</span>
+    <br><button class="btn-trans" onclick="toggleT('p2-E-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p2-E-tr">Thí nghiệm thứ ba của ông nghiên cứu những người bị rối loạn chức năng não như tự kỷ và tâm thần phân liệt - những người gặp khó khăn trong kết nối cảm xúc. Giáo sư Robert Provine phát hiện một cái ngáp trung bình kéo dài khoảng 6 giây và diễn ra theo từng đợt cách nhau khoảng 68 giây (interval of about 68 seconds). Nam và nữ ngáp với tần suất như nhau, nhưng nam giới ít che miệng hơn đáng kể. Cơ chế thực thể của ngáp được điều phối ở vùng dưới đồi (hypothalamus) - vùng não cũng kiểm soát hơi thở.</div>
+  </div>
+  <div class="para-box" id="p2-F">
+    <span class="para-lbl">[Paragraph F]</span>
+    <span>Yawning and stretching also share properties and may be performed together as parts of a global motor complex. But they do not always co-occur, people usually yawn when we stretch, but we don't always stretch when we yawn, especially before bedtime. Studies by G.H.A. Visser and H.F. Prechtl in the early 1980s, charting movement In the developing fetus using ultrasound, observed not just yawning but a link between yawning and stretching as early as the end of the first prenatal trimester.</span>
+    <br><button class="btn-trans" onclick="toggleT('p2-F-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p2-F-tr">Ngáp và vươn vai (stretching) có nhiều đặc tính chung và là một phần của phức hợp vận động, nhưng không phải lúc nào cũng đi liền với nhau: người ta thường ngáp khi vươn vai, nhưng không phải lúc nào ngáp cũng vươn vai (nhất là trước khi đi ngủ). Các nghiên cứu siêu âm đầu thập niên 1980 đã phát hiện mối liên hệ giữa ngáp và vươn vai ở thai nhi ngay từ cuối quý đầu tiên của thai kỳ.</div>
+  </div>
+  <div class="para-box" id="p2-G">
+    <span class="para-lbl">[Paragraph G]</span>
+    <span>The most extraordinary demonstration of the yawn-stretch linkage occurs in many people paralyzed on one side of their body because of brain damage caused by a stroke. The prominent British neurologist Sir Francis Walshe noted in 1923 that when these hemiplegics yawn, they are startled and mystified to observe that their otherwise paralyzed arm rises and flexes automatically in what neurologists term an 'associated response.' Yawning apparently activates undamaged, unconsciously controlled connections between the brain and the cord motor system innervating the paralyzed limb. It is not known whether the associated response is a positive prognosis for recovery, nor whether yawning is therapeutic for reinnervation or prevention of muscular atrophy.</span>
+    <br><button class="btn-trans" onclick="toggleT('p2-G-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p2-G-tr">Minh chứng phi thường nhất về mối liên hệ ngáp - vươn vai xuất hiện ở những bệnh nhân bị liệt nửa người do đột quỵ (hemiplegia). Bác sĩ thần kinh Francis Walshe (1923) ghi nhận khi bệnh nhân ngáp, cánh tay bị liệt của họ tự động nâng lên và co lại (phản xạ liên đới). Tuy nhiên, liệu hiện tượng này có mang lại dấu hiệu hồi phục tích cực hay không thì y học vẫn chưa khẳng định được.</div>
+  </div>
+  <div class="para-box" id="p2-H">
+    <span class="para-lbl">[Paragraph H]</span>
+    <span>Clinical neurology offers other surprises. Some patients with 'locked-in' syndrome, who are almost totally deprived of the ability to move voluntarily, can yawn normally. The neural circuits for spontaneous yawning must exist in the brain stem near other respiratory and vasomotor centers, because yawning is performed by anencephalic individuals who possess only the medulla oblongata. The multiplicity of stimuli of contagious yawning, by contrast, implicates many higher brain regions.</span>
+    <br><button class="btn-trans" onclick="toggleT('p2-H-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p2-H-tr">Bệnh nhân mắc hội chứng 'khóa trong' (locked-in) dù mất hầu hết khả năng vận động tự chủ nhưng vẫn ngáp bình thường. Mạch thần kinh điều khiển ngáp tự phát nằm ở thân não và hành tủy (medulla oblongata). Ngược lại, tính chất lây lan của cái ngáp đòi hỏi sự tham gia của nhiều vùng não bậc cao (higher brain regions).</div>
+  </div>
+</div>
+<div id="p-content-3" style="display:none;">
+  <div class="passage-head"><h1 class="p-title">INCORRECT TERMINOLOGY IN SCIENCE</h1><p class="p-sub">Thuật ngữ không chuẩn xác trong truyền thông khoa học và các ngộ nhận</p></div>
+  <div class="para-box" id="p3-A">
+    <span class="para-lbl">[Paragraph A]</span>
+    <span>Science plays an increasingly significant role in people's lives, making the faithful communication of scientific developments more important than ever. Yet such communication is fraught with challenges that can easily distort discussions, leading to unnecessary confusion and misunderstandings.</span>
+    <br><button class="btn-trans" onclick="toggleT('p3-A-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p3-A-tr">Khoa học ngày càng đóng vai trò quan trọng trong đời sống, khiến cho việc truyền đạt trung thực các tiến bộ khoa học trở nên cấp thiết hơn bao giờ hết. Dẫu vậy, việc truyền thông khoa học lại gặp vô vàn thách thức, dễ làm sai lệch các cuộc thảo luận và dẫn tới những nhầm lẫn, hoang mang không đáng có.</div>
+  </div>
+  <div class="para-box" id="p3-B">
+    <span class="para-lbl">[Paragraph B]</span>
+    <span>Some problems stem from the esoteric nature of current research and the associated difficulty of finding sufficiently faithful terminology. Abstraction and complexity are not signs that a given scientific direction is wrong, as some commentators have suggested, but are instead a tribute to the success of human ingenuity in meeting the increasingly complex challenges that nature presents. They can, however, make communication more difficult. But many of the biggest challenges for science reporting arise because in areas of evolving research, scientists themselves often only partly understand the full implications of any particular advance or development. Since that dynamic applies to most of the scientific developments that directly affect people's lives: global warming, cancer research, diet studies — learning how to overcome it is critical to spurring a more informed scientific debate among the broader public.</span>
+    <br><button class="btn-trans" onclick="toggleT('p3-B-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p3-B-tr">Một số vấn đề xuất phát từ tính chất uyên bác, trừu tượng của nghiên cứu hiện đại và khó khăn trong việc tìm kiếm thuật ngữ chuẩn xác. Tuy nhiên, thách thức lớn nhất trong việc đưa tin khoa học nảy sinh do trong các lĩnh vực đang phát triển, chính các nhà khoa học đôi khi cũng chỉ hiểu được một phần tác động toàn diện của tiến bộ đó. Việc học cách vượt qua rào cản này là tối quan trọng để thúc đẩy tranh luận sáng suốt trong công chúng.</div>
+  </div>
+  <div class="para-box" id="p3-C">
+    <span class="para-lbl">[Paragraph C]</span>
+    <span>Ambiguous word choices are the source of some misunderstandings. Scientists often employ colloquial terminology, which they then assign a specific meaning that is impossible to fathom without proper training. The term 'relativity,' for example, is intrinsically misleading. Many interpret the theory to mean that everything is relative and there are no absolutes. Yet although the measurements any observer makes depend on his coordinates and reference frame, the physical phenomena he measures have an invariant description that transcends that observer's particular coordinates. Einstein's theory of relativity is really about finding an Invariant description of physical phenomena. True, Einstein agreed with the idea that his theory would have been better named 'Invarianten theory.' But the term - 'relativity' was already entrenched at the time for him to change.</span>
+    <br><button class="btn-trans" onclick="toggleT('p3-C-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p3-C-tr">Lựa chọn từ ngữ mơ hồ là nguồn cơn của nhiều hiểu lầm. Các nhà khoa học thường dùng thuật ngữ thông tục thường nhật nhưng lại gán cho nó ý nghĩa chuyên biệt mà người không có chuyên môn không thể hiểu thấu. Ví dụ, từ 'tương đối' (relativity) rất dễ gây hiểu lầm rằng mọi thứ đều tương đối và không có gì là tuyệt đối. Trên thực tế, thuyết của Einstein là đi tìm mô tả bất biến (invariant description) của các hiện tượng vật lý.</div>
+  </div>
+  <div class="para-box" id="p3-D">
+    <span class="para-lbl">[Paragraph D]</span>
+    <span>'The uncertainty principle' is another frequently abused term. It is sometimes interpreted as a limitation on observers and their ability to make measurements. But it is not about intrinsic limitations on any particular measurement; it is about the inability to precisely measure particular pairs of quantities simultaneously. The first Interpretation is perhaps more engaging from a philosophical or political perspective. It's just not what science is about.</span>
+    <br><button class="btn-trans" onclick="toggleT('p3-D-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p3-D-tr">'Nguyên lý bất định' (uncertainty principle) cũng là một thuật ngữ thường bị lạm dụng. Người ta hay diễn giải nó như là giới hạn của người quan sát trong việc đo đạc. Nhưng về bản chất khoa học, nó nói về việc không thể đo chính xác đồng thời các cặp đại lượng nhất định cùng lúc.</div>
+  </div>
+  <div class="para-box" id="p3-E">
+    <span class="para-lbl">[Paragraph E]</span>
+    <span>Even the word 'theory' can be a problem. Unlike most people, who use the word to describe a passing conjecture that they often regard as suspect, physicists have very specific ideas in mind when they talk about theories. For physicists, theories entail a definite physical framework embodied in a set of fundamental assumptions about the world that lead to a specific set of equations and predictions — ones that are borne out by successful predictions. Theories aren't necessarily shown to be correct or complete immediately. Even Einstein took the better part of a decade to develop the correct version of his theory of general relativity. But eventually both the ideas and the measurements settle down and theories are either proven correct, abandoned or absorbed into other, more encompassing theories.</span>
+    <br><button class="btn-trans" onclick="toggleT('p3-E-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p3-E-tr">Ngay cả từ 'thuyết / lý thuyết' (theory) cũng gây rắc rối. Người thường hay dùng từ này để chỉ một phỏng đoán mơ hồ, nhưng đối với các nhà vật lý, lý thuyết đòi hỏi một hệ thống vật lý hoàn chỉnh đưa ra các dự đoán và phương trình được kiểm chứng. Ngay cả Einstein cũng mất gần một thập kỷ để phát triển phiên bản chính xác của thuyết tương đối rộng (theory of general relativity).</div>
+  </div>
+  <div class="para-box" id="p3-F">
+    <span class="para-lbl">[Paragraph F]</span>
+    <span>'Global warming' is another example of problematic terminology. Climatologists predict more drastic fluctuations in temperature and rainfall — not necessarily that every place will be warmer. The name sometimes subverts the debate, since it lets people argue that their winter was worse, so how could there be global warming? Clearly 'global climate change' would have been a better name. But not all problems stem solely from poor word choices. Remarkably, chemists were able to detail the precise chemical processes involved in the destruction of the ozone layer, making the evidence that chlorofluorocarbon gases (Freon, for example) were destroying the ozone layer indisputably.</span>
+    <br><button class="btn-trans" onclick="toggleT('p3-F-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p3-F-tr">'Sự nóng lên toàn cầu' (global warming) là một ví dụ thuật ngữ gây tranh cãi khác. Các nhà khí hậu học dự đoán sự biến động khốc liệt của nhiệt độ và lượng mưa chứ không nhất thiết là nơi nào cũng ấm lên. Tên gọi này khiến nhiều người thắc mắc tại sao mùa đông lạnh kỷ lục lại gọi là nóng lên toàn cầu. Đáng lẽ gọi là 'biến đổi khí hậu toàn cầu' thì chuẩn xác hơn.</div>
+  </div>
+  <div class="para-box" id="p3-G">
+    <span class="para-lbl">[Paragraph G]</span>
+    <span>A better understanding of the mathematical significance of results and less insistence on a simple story would help to clarify many scientific discussions. For several months, Harvard was tortured by empty debates over the relative intrinsic scientific abilities of men and women. One of the more amusing aspects of the discussion was that those who believed in the differences and those who didn't used the same evidence about gender-specific special ability. The answer is that the data shows no substantial effects. The first would be to inculcate greater understanding and acceptance of indirect scientific evidence. The information from an unmanned space mission is no less legitimate than the information from one in which people are on board.</span>
+    <br><button class="btn-trans" onclick="toggleT('p3-G-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p3-G-tr">Việc thấu hiểu ý nghĩa toán học của kết quả và bớt đòi hỏi một câu chuyện đơn giản hóa sẽ giúp làm sáng tỏ nhiều cuộc tranh luận. Tại Harvard, tranh cãi kéo dài về năng lực khoa học bẩm sinh giữa nam và nữ nảy sinh điều trớ trêu là cả hai phe đều dùng chung một bộ dữ liệu để bảo vệ quan điểm đối lập của mình. Ngoài ra, cần chấp nhận bằng chứng khoa học gián tiếp: dữ liệu từ tàu vũ trụ không người lái cũng hợp pháp và giá trị không kém tàu có người lái.</div>
+  </div>
+  <div class="para-box" id="p3-H">
+    <span class="para-lbl">[Paragraph H]</span>
+    <span>This doesn't mean never questioning an Interpretation, but it also doesn't mean equating indirect evidence with blind belief, as people sometimes suggest. Second, we might need different standards for evaluating science with urgent policy implications than research with purely theoretical value. When scientists say they are not certain about their predictions, it doesn't necessarily mean they've found nothing substantial. Statistics and errors, which tell us the uncertainty in a measurement, give us the tools to evaluate new developments fairly.</span>
+    <br><button class="btn-trans" onclick="toggleT('p3-H-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p3-H-tr">Điều này không có nghĩa là mù quáng tin theo bằng chứng gián tiếp, mà cần có các tiêu chuẩn đánh giá khác nhau. Khi các nhà khoa học nói họ không chắc chắn 100% về dự đoán, điều đó không có nghĩa là họ không tìm thấy điều gì có giá trị thực chất. Thống kê và sai số cho ta công cụ để đánh giá công bằng các phát hiện.</div>
+  </div>
+  <div class="para-box" id="p3-I">
+    <span class="para-lbl">[Paragraph I]</span>
+    <span>But most importantly, people have to recognize that science can be complex. If we accept only simple stories, the description will necessarily be distorted. When advances are subtle or complicated, scientists should be willing to go the extra distance to give proper explanations and be patient about the truth. Even so, some difficulties are unavoidable. Most developments reflect work in progress, so the story is complex because no one yet knows the big picture.</span>
+    <br><button class="btn-trans" onclick="toggleT('p3-I-tr')">🌟 Mở dịch đoạn này</button>
+    <div class="trans-box" id="p3-I-tr">Quan trọng nhất, công chúng cần nhận thức rằng khoa học vốn dĩ phức tạp. Nếu chúng ta chỉ chấp nhận những câu chuyện đơn giản hóa, bản chất khoa học tất yếu sẽ bị bóp méo. Các nhà khoa học cần kiên nhẫn giải thích cặn kẽ và đi đến tận cùng sự thật, dù bức tranh toàn cảnh vẫn đang trong quá trình khám phá.</div>
+  </div>
+</div>
+
+      </div>
+
+      <div class="pane" id="exercisePane">
+        
+<div id="ex-content-1" style="display:block;">
+  <div class="sec-banner">📌 Questions 1–5: Match the people (A–E) with opinions or deeds</div>
+  <div style="font-size:12px; margin-bottom:10px; color:#4b5563; background:#fff; padding:8px 12px; border-radius:8px; border:1px solid #e2e8f0;">
+    <b>List of People:</b> A. Suess | B. Wallace | C. Darwin and Wallace | D. Wegener | E. Lyell and Hooker
+  </div>
+
+  <div class="q-card" id="card-1">
+    <div class="q-top"><span class="q-num">1</span><span class="q-txt">Urged Darwin to publish his scientific findings</span><span id="stat-1"></span></div>
+    <select class="sel-box" id="ctrl-1" onchange="checkSelect(1, 'E', 'p1-D')">
+      <option value="">-- Chọn nhân vật (A - E) --</option>
+      <option value="A">A. Suess</option><option value="B">B. Wallace</option><option value="C">C. Darwin and Wallace</option><option value="D">D. Wegener</option><option value="E">E. Lyell and Hooker</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-1">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-D')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Dịch:</b> Thúc giục Darwin công bố các phát hiện khoa học của mình.</div>
+      <div class="options-breakdown-grid"><div class="option-chip highlight"><b>Đáp án E</b> = Lyell and Hooker</div><div class="option-chip"><b>Urged</b> = Thúc giục (= pressed)</div></div>
+      <ul class="exp-bullet-desc">
+        <li><b>Dẫn chứng:</b> <i>"Charles Lyell and J. D Hooker, close friends of Darwin, pressed Darwin to present his conclusions..." (Paragraph D)</i></li>
+        <li><b>Từ đồng nghĩa:</b> <span class="syn-tag">Urged = pressed Darwin to present</span></li>
+      </ul>
+      <div class="cambridge-section"><div class="cambridge-btn-group"><a href="https://dictionary.cambridge.org/vi/dictionary/english/urge" target="_blank" class="cambridge-pill-btn">🔊 Cambridge · urge</a></div></div>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-2">
+    <div class="q-top"><span class="q-num">2</span><span class="q-txt">Depicted physical features of earth's crust</span><span id="stat-2"></span></div>
+    <select class="sel-box" id="ctrl-2" onchange="checkSelect(2, 'A', 'p1-H')">
+      <option value="">-- Chọn nhân vật (A - E) --</option>
+      <option value="A">A. Suess</option><option value="B">B. Wallace</option><option value="C">C. Darwin and Wallace</option><option value="D">D. Wegener</option><option value="E">E. Lyell and Hooker</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-2">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-H')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Dịch:</b> Miêu tả đặc điểm vật lý của lớp vỏ Trái Đất (nhăn nheo như vỏ quả táo già).</div>
+      <ul class="exp-bullet-desc">
+        <li><b>Dẫn chứng:</b> <i>"Eduard Suess, theorized that as the rigid Earth cools, its upper crust shrinks and wrinkles like the withering skin of an aging apple." (Paragraph H)</i></li>
+      </ul>
+      <div class="cambridge-section"><div class="cambridge-btn-group"><a href="https://dictionary.cambridge.org/vi/dictionary/english/crust" target="_blank" class="cambridge-pill-btn">🔊 Cambridge · crust</a></div></div>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-3">
+    <div class="q-top"><span class="q-num">3</span><span class="q-txt">Believed in continental drift theory while rejecting another one</span><span id="stat-3"></span></div>
+    <select class="sel-box" id="ctrl-3" onchange="checkSelect(3, 'D', 'p1-G')">
+      <option value="">-- Chọn nhân vật (A - E) --</option>
+      <option value="A">A. Suess</option><option value="B">B. Wallace</option><option value="C">C. Darwin and Wallace</option><option value="D">D. Wegener</option><option value="E">E. Lyell and Hooker</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-3">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-G')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Dịch:</b> Tin vào thuyết trôi dạt lục địa đồng thời bác bỏ học thuyết khác (thuyết cầu lục địa).</div>
+      <ul class="exp-bullet-desc">
+        <li><b>Dẫn chứng:</b> <i>"Wegener concluded that the then broadly accepted 'landbridge' theory could not account for this... and that only his theory of continental drift could explain it." (Paragraph G)</i></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-4">
+    <div class="q-top"><span class="q-num">4</span><span class="q-txt">Published works about wildlife distribution in different regions</span><span id="stat-4"></span></div>
+    <select class="sel-box" id="ctrl-4" onchange="checkSelect(4, 'B', 'p1-E')">
+      <option value="">-- Chọn nhân vật (A - E) --</option>
+      <option value="A">A. Suess</option><option value="B">B. Wallace</option><option value="C">C. Darwin and Wallace</option><option value="D">D. Wegener</option><option value="E">E. Lyell and Hooker</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-4">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-E')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Dịch:</b> Xuất bản công trình nghiên cứu về phân bố động vật ở các vùng địa lý khác nhau.</div>
+      <ul class="exp-bullet-desc">
+        <li><b>Dẫn chứng:</b> <i>"Wallace applied himself to the science of biogeography... resulting in the publication of a massive two volume work the Geographical Distribution of Animals in 1876." (Paragraph E)</i></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-5">
+    <div class="q-top"><span class="q-num">5</span><span class="q-txt">Evolution of species is based on selection by nature</span><span id="stat-5"></span></div>
+    <select class="sel-box" id="ctrl-5" onchange="checkSelect(5, 'C', 'p1-A')">
+      <option value="">-- Chọn nhân vật (A - E) --</option>
+      <option value="A">A. Suess</option><option value="B">B. Wallace</option><option value="C">C. Darwin and Wallace</option><option value="D">D. Wegener</option><option value="E">E. Lyell and Hooker</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-5">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-A')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Dịch:</b> Sự tiến hóa của các loài dựa trên sự chọn lọc của tự nhiên.</div>
+      <ul class="exp-bullet-desc">
+        <li><b>Dẫn chứng:</b> <i>"Charles Darwin and his young contemporary Alfred Russel Wallace reached the conclusion that life had evolved by natural selection." (Paragraph A)</i></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-banner">📌 Questions 6–8: Which paragraph contains the following information? (A–I)</div>
+
+  <div class="q-card" id="card-6">
+    <div class="q-top"><span class="q-num">6</span><span class="q-txt">The most adaptable would survive</span><span id="stat-6"></span></div>
+    <select class="sel-box" id="ctrl-6" onchange="checkSelect(6, 'B', 'p1-B')">
+      <option value="">-- Chọn đoạn văn (A - I) --</option>
+      <option value="A">Paragraph A</option><option value="B">Paragraph B</option><option value="C">Paragraph C</option><option value="D">Paragraph D</option><option value="E">Paragraph E</option><option value="F">Paragraph F</option><option value="G">Paragraph G</option><option value="H">Paragraph H</option><option value="I">Paragraph I</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-6">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-B')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> Paragraph B</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...on the whole the best fit lived... the fittest would survive." (Paragraph B)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-7">
+    <div class="q-top"><span class="q-num">7</span><span class="q-txt">The boundary called Wallace's line is found between Asia and Australia</span><span id="stat-7"></span></div>
+    <select class="sel-box" id="ctrl-7" onchange="checkSelect(7, 'F', 'p1-F')">
+      <option value="">-- Chọn đoạn văn (A - I) --</option>
+      <option value="A">Paragraph A</option><option value="B">Paragraph B</option><option value="C">Paragraph C</option><option value="D">Paragraph D</option><option value="E">Paragraph E</option><option value="F">Paragraph F</option><option value="G">Paragraph G</option><option value="H">Paragraph H</option><option value="I">Paragraph I</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-7">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-F')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> Paragraph F</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...distinct faunal boundary, called 'Wallace's line,' between an Asian realm of animals... and an Australian realm in New Guinea and Australia." (Paragraph F)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-8">
+    <div class="q-top"><span class="q-num">8</span><span class="q-txt">Animal affinity exists between Australia and Africa</span><span id="stat-8"></span></div>
+    <select class="sel-box" id="ctrl-8" onchange="checkSelect(8, 'G', 'p1-G')">
+      <option value="">-- Chọn đoạn văn (A - I) --</option>
+      <option value="A">Paragraph A</option><option value="B">Paragraph B</option><option value="C">Paragraph C</option><option value="D">Paragraph D</option><option value="E">Paragraph E</option><option value="F">Paragraph F</option><option value="G">Paragraph G</option><option value="H">Paragraph H</option><option value="I">Paragraph I</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-8">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-G')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> Paragraph G</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Wallace had shown that animals long established in southwestern Australia had an affinity with animals in South Africa..." (Paragraph G)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="sec-banner">📌 Questions 9–13: Complete summary (NO MORE THAN TWO WORDS)</div>
+
+  <div class="q-card" id="card-9">
+    <div class="q-top"><span class="q-num">9</span><span class="q-txt">in which vegetation and wildlife 9. _________ intercontinentally.</span><span id="stat-9"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-9" placeholder="Điền từ..."><button class="btn-chk" onclick="checkFill(9, ['migrated'], 'p1-H')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-9">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-H')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> migrated</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"proposed that plants and animals had once migrated across now-submerged intercontinental landbridges." (Paragraph H)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-10">
+    <div class="q-top"><span class="q-num">10</span><span class="q-txt">compared the wrinkle of the crust to the 10. _________ of an old apple.</span><span id="stat-10"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-10" placeholder="Điền từ..."><button class="btn-chk" onclick="checkFill(10, ['withering skin'], 'p1-H')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-10">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-H')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> withering skin</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...its upper crust shrinks and wrinkles like the withering skin of an aging apple." (Paragraph H)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-11">
+    <div class="q-top"><span class="q-num">11</span><span class="q-txt">where there are 11. _________ in constant mobile states instead of what Suess described.</span><span id="stat-11"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-11" placeholder="Điền từ..."><button class="btn-chk" onclick="checkFill(11, ['tectonic plates'], 'p1-I')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-11">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-I')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> tectonic plates</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"...dynamic Earth with shifting, colliding and separating tectonic plates..." (Paragraph I)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-12">
+    <div class="q-top"><span class="q-num">12</span><span class="q-txt">debate has switched to concerns between two terms: "12. _________" and...</span><span id="stat-12"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-12" placeholder="Điền từ..."><button class="btn-chk" onclick="checkFill(12, ['dispersalism'], 'p1-I')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-12">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-I')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> dispersalism</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"The discussion now concerns 'dispersalism' versus 'vicarianism'..." (Paragraph I)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-13">
+    <div class="q-top"><span class="q-num">13</span><span class="q-txt">and "13. _________"</span><span id="stat-13"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-13" placeholder="Điền từ..."><button class="btn-chk" onclick="checkFill(13, ['vicarianism'], 'p1-I')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-13">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p1-I')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> vicarianism</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"The discussion now concerns 'dispersalism' versus 'vicarianism'..." (Paragraph I)</i></li></ul>
+    </div>
+  </div>
+</div>
+
+<div id="ex-content-2" style="display:none;">
+  <div class="sec-banner">📌 Questions 14–18: Complete the Summary (NO MORE THAN THREE WORDS)</div>
+
+  <div class="q-card" id="card-14">
+    <div class="q-top"><span class="q-num">14</span><span class="q-txt">An average yawn lasts about 6 seconds followed by an 14. ________ before another yawn.</span><span id="stat-14"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-14" placeholder="Điền tối đa 3 từ..."><button class="btn-chk" onclick="checkFill(14, ['interval of about 68 seconds', 'interval of 68 seconds', 'interval'], 'p2-E')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-14">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-E')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Dịch:</b> Một cái ngáp kéo dài 6 giây theo sau bởi một khoảng cách quãng trước cái ngáp kế tiếp.</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"the basic yawn lasts about six seconds and they come in bouts with an interval of about 68 seconds." (Paragraph E)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-15">
+    <div class="q-top"><span class="q-num">15</span><span class="q-txt">Males and females yawn equally often, but behavior accompanied with yawning shows a 15. ________ in genders.</span><span id="stat-15"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-15" placeholder="Điền tối đa 3 từ..."><button class="btn-chk" onclick="checkFill(15, ['complex distinction', 'distinction'], 'p2-E')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-15">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-E')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Dịch:</b> Hành vi che miệng khi ngáp cho thấy sự khác biệt phức tạp giữa hai giới.</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"men are significantly less likely to cover their mouths which may indicate complex distinction in genders." (Paragraph E)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-16">
+    <div class="q-top"><span class="q-num">16</span><span class="q-txt">A part of the brain involved in yawning may also be responsible for 16. ________.</span><span id="stat-16"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-16" placeholder="Điền tối đa 3 từ..."><button class="btn-chk" onclick="checkFill(16, ['breathing'], 'p2-E')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-16">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-E')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Dịch:</b> Vùng dưới đồi kiểm soát cái ngáp cũng chịu trách nhiệm cho việc hô hấp / thở.</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"coordinated within the hypothalamus of the brain, the area that also controls breathing." (Paragraph E)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-17">
+    <div class="q-top"><span class="q-num">17</span><span class="q-txt">A link between a yawn and 17. ________ during the first three months of pregnancy...</span><span id="stat-17"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-17" placeholder="Điền tối đa 3 từ..."><button class="btn-chk" onclick="checkFill(17, ['stretching'], 'p2-F')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-17">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-F')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Dịch:</b> Mối liên hệ giữa cái ngáp và hành động vươn vai trong 3 tháng đầu thai kỳ.</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"a link between yawning and stretching as early as the end of the first prenatal trimester." (Paragraph F)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-18">
+    <div class="q-top"><span class="q-num">18</span><span class="q-txt">...shown to set off an involuntary movement in people with 18. ________.</span><span id="stat-18"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-18" placeholder="Điền tối đa 3 từ..."><button class="btn-chk" onclick="checkFill(18, ['brain damage', 'stroke', 'hemiplegia'], 'p2-G')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-18">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-G')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Dịch:</b> Kích hoạt cử động không tự chủ ở người bị tổn thương não / đột quỵ.</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"paralyzed on one side of their body because of brain damage caused by a stroke." (Paragraph G)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="sec-banner">📌 Questions 19–23: Which paragraph contains the following information? (A–H)</div>
+
+  <div class="q-card" id="card-19">
+    <div class="q-top"><span class="q-num">19</span><span class="q-txt">The rate for yawning shows some regular pattern.</span><span id="stat-19"></span></div>
+    <select class="sel-box" id="ctrl-19" onchange="checkSelect(19, 'E', 'p2-E')">
+      <option value="">-- Chọn đoạn văn (A - H) --</option>
+      <option value="A">Paragraph A</option><option value="B">Paragraph B</option><option value="C">Paragraph C</option><option value="D">Paragraph D</option><option value="E">Paragraph E</option><option value="F">Paragraph F</option><option value="G">Paragraph G</option><option value="H">Paragraph H</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-19">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-E')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> Paragraph E</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"lasts about six seconds and they come in bouts with an interval of about 68 seconds." (Paragraph E)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-20">
+    <div class="q-top"><span class="q-num">20</span><span class="q-txt">Yawning is an inherent ability that appears in both animals and humans.</span><span id="stat-20"></span></div>
+    <select class="sel-box" id="ctrl-20" onchange="checkSelect(20, 'B', 'p2-B')">
+      <option value="">-- Chọn đoạn văn (A - H) --</option>
+      <option value="A">Paragraph A</option><option value="B">Paragraph B</option><option value="C">Paragraph C</option><option value="D">Paragraph D</option><option value="E">Paragraph E</option><option value="F">Paragraph F</option><option value="G">Paragraph G</option><option value="H">Paragraph H</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-20">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-B')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> Paragraph B</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Humans do it even before they are born, opening wide in the womb. Some snakes unhinge their jaws to do it. One species of penguins yawns..." (Paragraph B)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-21">
+    <div class="q-top"><span class="q-num">21</span><span class="q-txt">Stretching and yawning doesn't always occur together.</span><span id="stat-21"></span></div>
+    <select class="sel-box" id="ctrl-21" onchange="checkSelect(21, 'F', 'p2-F')">
+      <option value="">-- Chọn đoạn văn (A - H) --</option>
+      <option value="A">Paragraph A</option><option value="B">Paragraph B</option><option value="C">Paragraph C</option><option value="D">Paragraph D</option><option value="E">Paragraph E</option><option value="F">Paragraph F</option><option value="G">Paragraph G</option><option value="H">Paragraph H</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-21">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-F')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> Paragraph F</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"But they do not always co-occur, people usually yawn when we stretch, but we don't always stretch when we yawn..." (Paragraph F)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-22">
+    <div class="q-top"><span class="q-num">22</span><span class="q-txt">Yawning may suggest people are empathetic and attentive.</span><span id="stat-22"></span></div>
+    <select class="sel-box" id="ctrl-22" onchange="checkSelect(22, 'D', 'p2-D')">
+      <option value="">-- Chọn đoạn văn (A - H) --</option>
+      <option value="A">Paragraph A</option><option value="B">Paragraph B</option><option value="C">Paragraph C</option><option value="D">Paragraph D</option><option value="E">Paragraph E</option><option value="F">Paragraph F</option><option value="G">Paragraph G</option><option value="H">Paragraph H</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-22">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-D')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> Paragraph D</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"It's also a good indicator if you're empathizing with me and paying attention." (Paragraph D)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-23">
+    <div class="q-top"><span class="q-num">23</span><span class="q-txt">Some superior areas in the brain may underline the infectious feature of yawning.</span><span id="stat-23"></span></div>
+    <select class="sel-box" id="ctrl-23" onchange="checkSelect(23, 'H', 'p2-H')">
+      <option value="">-- Chọn đoạn văn (A - H) --</option>
+      <option value="A">Paragraph A</option><option value="B">Paragraph B</option><option value="C">Paragraph C</option><option value="D">Paragraph D</option><option value="E">Paragraph E</option><option value="F">Paragraph F</option><option value="G">Paragraph G</option><option value="H">Paragraph H</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-23">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-H')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> Paragraph H</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"The multiplicity of stimuli of contagious yawning, by contrast, implicates many higher brain regions." (Paragraph H)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="sec-banner">📌 Questions 24–26: TRUE / FALSE / NOT GIVEN</div>
+
+  <div class="q-card" id="card-24">
+    <div class="q-top"><span class="q-num">24</span><span class="q-txt">Some participants in Platek's first experiment did not understand why they were asked to look at people yawning.</span><span id="stat-24"></span></div>
+    <select class="sel-box" id="ctrl-24" onchange="checkSelect(24, 'TRUE', 'p2-C')">
+      <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-24">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-C')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> TRUE</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"We literally had people saying, 'Why am I looking at people yawning?— Professor Platek said." (Paragraph C)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-25">
+    <div class="q-top"><span class="q-num">25</span><span class="q-txt">The results from the second experiment indicate the link between yawning and empathy.</span><span id="stat-25"></span></div>
+    <select class="sel-box" id="ctrl-25" onchange="checkSelect(25, 'TRUE', 'p2-D')">
+      <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-25">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-D')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> TRUE</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"the part of the brain which reacted was the part scientists believe controls empathy..." (Paragraph D)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-26">
+    <div class="q-top"><span class="q-num">26</span><span class="q-txt">Yawning shows a positive impact on the recovery from brain damage brought by a stroke.</span><span id="stat-26"></span></div>
+    <select class="sel-box" id="ctrl-26" onchange="checkSelect(26, 'FALSE', 'p2-G')">
+      <option value="">-- Chọn đáp án --</option><option value="TRUE">TRUE</option><option value="FALSE">FALSE</option><option value="NOT GIVEN">NOT GIVEN</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-26">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p2-G')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> FALSE</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"It is not known whether the associated response is a positive prognosis for recovery, nor whether yawning is therapeutic..." (Paragraph G)</i> (Chưa hề biết có tác động tích cực hay không).</li></ul>
+    </div>
+  </div>
+</div>
+
+<div id="ex-content-3" style="display:none;">
+  <div class="sec-banner">📌 Questions 27–31: Choose the correct answer (A, B, C, or D)</div>
+
+  <div class="q-card" id="card-27">
+    <div class="q-top"><span class="q-num">27</span><span class="q-txt">Why is the faithful communication of science important?</span><span id="stat-27"></span></div>
+    <div class="mc-grid">
+      <button class="mc-opt" onclick="checkMC(27, 'A', 'A', 'p3-A')">A. Science plays an increasingly significant role in people's lives.</button>
+      <button class="mc-opt" onclick="checkMC(27, 'B', 'A', 'p3-A')">B. Science is fraught with challenges the public are interested in.</button>
+      <button class="mc-opt" onclick="checkMC(27, 'C', 'A', 'p3-A')">C. The nature of complexity in science communication leads to confusion.</button>
+      <button class="mc-opt" onclick="checkMC(27, 'D', 'A', 'p3-A')">D. Scientific inventions are more important than ever before.</button>
+    </div>
+    <div class="detailed-exp-card" id="exp-27">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-A')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> A. Science plays an increasingly significant role in people's lives.</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Science plays an increasingly significant role in people's lives, making the faithful communication of scientific developments more important than ever." (Paragraph A)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-28">
+    <div class="q-top"><span class="q-num">28</span><span class="q-txt">What is the reason for many of the biggest challenges in science reporting?</span><span id="stat-28"></span></div>
+    <div class="mc-grid">
+      <button class="mc-opt" onclick="checkMC(28, 'A', 'C', 'p3-B')">A. Phenomenon such as global warming, cancer research, diet studies are too complex</button>
+      <button class="mc-opt" onclick="checkMC(28, 'B', 'C', 'p3-B')">B. Scientists themselves often only partly understand the Theory of Evolution</button>
+      <button class="mc-opt" onclick="checkMC(28, 'C', 'C', 'p3-B')">C. Scientists do not totally comprehend the impact of certain scientific advancements</button>
+      <button class="mc-opt" onclick="checkMC(28, 'D', 'C', 'p3-B')">D. Scientists themselves often partly understand the esoteric communication nature</button>
+    </div>
+    <div class="detailed-exp-card" id="exp-28">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-B')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> C. Scientists do not totally comprehend the impact of certain scientific advancements</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"scientists themselves often only partly understand the full implications of any particular advance or development." (Paragraph B)</i> (only partly understand = do not totally comprehend).</li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-29">
+    <div class="q-top"><span class="q-num">29</span><span class="q-txt">According to the 3rd paragraph, the reference to the term and example of "theory of relativity" is to demonstrate</span><span id="stat-29"></span></div>
+    <div class="mc-grid">
+      <button class="mc-opt" onclick="checkMC(29, 'A', 'B', 'p3-C')">A. Theory of relativity is about an invariant physical phenomenon</button>
+      <button class="mc-opt" onclick="checkMC(29, 'B', 'B', 'p3-C')">B. Scientific terms can sometimes cause misunderstandings</button>
+      <button class="mc-opt" onclick="checkMC(29, 'C', 'B', 'p3-C')">C. The term "relativity," is designed to be misleading public</button>
+      <button class="mc-opt" onclick="checkMC(29, 'D', 'B', 'p3-C')">D. Everything is relative and there is no absolute existence</button>
+    </div>
+    <div class="detailed-exp-card" id="exp-29">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-C')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> B. Scientific terms can sometimes cause misunderstandings</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Ambiguous word choices are the source of some misunderstandings... The term 'relativity,' for example, is intrinsically misleading." (Paragraph C)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-30">
+    <div class="q-top"><span class="q-num">30</span><span class="q-txt">Which one is a good example of an area where scientists used appropriate terminology</span><span id="stat-30"></span></div>
+    <div class="mc-grid">
+      <button class="mc-opt" onclick="checkMC(30, 'A', 'D', 'p3-F')">A. The uncertainty principle</button>
+      <button class="mc-opt" onclick="checkMC(30, 'B', 'D', 'p3-F')">B. Global warming</button>
+      <button class="mc-opt" onclick="checkMC(30, 'C', 'D', 'p3-F')">C. The theory of relativity</button>
+      <button class="mc-opt" onclick="checkMC(30, 'D', 'D', 'p3-F')">D. Freon's destructive process on Ozone</button>
+    </div>
+    <div class="detailed-exp-card" id="exp-30">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-F')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> D. Freon's destructive process on Ozone</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Remarkably, chemists were able to detail the precise chemical processes involved in the destruction of the ozone layer, making the evidence that chlorofluorocarbon gases (Freon, for example) were destroying the ozone layer indisputably." (Paragraph F)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-31">
+    <div class="q-top"><span class="q-num">31</span><span class="q-txt">What is a surprising finding of the Harvard debates in the passage?</span><span id="stat-31"></span></div>
+    <div class="mc-grid">
+      <button class="mc-opt" onclick="checkMC(31, 'A', 'B', 'p3-G')">A. There are equal intrinsic scientific abilities of men and women.</button>
+      <button class="mc-opt" onclick="checkMC(31, 'B', 'B', 'p3-G')">B. Both sides used the same data in support of their argument.</button>
+      <button class="mc-opt" onclick="checkMC(31, 'C', 'B', 'p3-G')">C. The scientific data usually shows no substantial figures to support a debated idea.</button>
+      <button class="mc-opt" onclick="checkMC(31, 'D', 'B', 'p3-G')">D. Social factors might have a clear connection to scientific ability.</button>
+    </div>
+    <div class="detailed-exp-card" id="exp-31">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-G')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> B. Both sides used the same data in support of their argument.</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"One of the more amusing aspects of the discussion was that those who believed in the differences and those who didn't used the same evidence about gender-specific special ability." (Paragraph G)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="sec-banner">📌 Questions 32–35: YES / NO / NOT GIVEN</div>
+
+  <div class="q-card" id="card-32">
+    <div class="q-top"><span class="q-num">32</span><span class="q-txt">"Global warming" scientifically refers to greater fluctuations in temperature and rainfall rather than a universal temperature rise.</span><span id="stat-32"></span></div>
+    <select class="sel-box" id="ctrl-32" onchange="checkSelect(32, 'YES', 'p3-F')">
+      <option value="">-- Chọn đáp án --</option><option value="YES">YES</option><option value="NO">NO</option><option value="NOT GIVEN">NOT GIVEN</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-32">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-F')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> YES</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Climatologists predict more drastic fluctuations in temperature and rainfall — not necessarily that every place will be warmer." (Paragraph F)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-33">
+    <div class="q-top"><span class="q-num">33</span><span class="q-txt">More media coverage of "global warming" would help the public to recognize the phenomenon.</span><span id="stat-33"></span></div>
+    <select class="sel-box" id="ctrl-33" onchange="checkSelect(33, 'NOT GIVEN', 'p3-F')">
+      <option value="">-- Chọn đáp án --</option><option value="YES">YES</option><option value="NO">NO</option><option value="NOT GIVEN">NOT GIVEN</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-33">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-F')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> NOT GIVEN</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Bài đọc nói tên gọi làm sai lệch tranh luận, KHÔNG đề cập liệu việc đưa tin nhiều hơn trên truyền thông có giúp ích hay không.</li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-34">
+    <div class="q-top"><span class="q-num">34</span><span class="q-txt">Harvard debates should focus more on female scientists than male scientists.</span><span id="stat-34"></span></div>
+    <select class="sel-box" id="ctrl-34" onchange="checkSelect(34, 'NOT GIVEN', 'p3-G')">
+      <option value="">-- Chọn đáp án --</option><option value="YES">YES</option><option value="NO">NO</option><option value="NOT GIVEN">NOT GIVEN</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-34">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-G')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> NOT GIVEN</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> Đoạn G chỉ nhắc đến tranh cãi về năng lực hai giới, không hề đề xuất nên tập trung vào nhà khoa học nữ hơn nam.</li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-35">
+    <div class="q-top"><span class="q-num">35</span><span class="q-txt">Indirect scientific evidence is always less reliable than direct scientific evidence.</span><span id="stat-35"></span></div>
+    <select class="sel-box" id="ctrl-35" onchange="checkSelect(35, 'NO', 'p3-G')">
+      <option value="">-- Chọn đáp án --</option><option value="YES">YES</option><option value="NO">NO</option><option value="NOT GIVEN">NOT GIVEN</option>
+    </select>
+    <div class="detailed-exp-card" id="exp-35">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-G')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> NO</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"The information from an unmanned space mission is no less legitimate than the information from one in which people are on board." (Paragraph G)</i> (không hề kém tin cậy hay kém hợp pháp hơn).</li></ul>
+    </div>
+  </div>
+
+  <div class="sec-banner">📌 Questions 36–40: Complete summary (NO MORE THAN TWO WORDS)</div>
+
+  <div class="q-card" id="card-36">
+    <div class="q-top"><span class="q-num">36</span><span class="q-txt">Firstly, ambiguous 36 ________ are the source of some misunderstandings.</span><span id="stat-36"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-36" placeholder="Điền từ..."><button class="btn-chk" onclick="checkFill(36, ['word choices'], 'p3-C')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-36">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-C')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> word choices</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Ambiguous word choices are the source of some misunderstandings." (Paragraph C)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-37">
+    <div class="q-top"><span class="q-num">37</span><span class="q-txt">via the 37 ________ that scientists often employ.</span><span id="stat-37"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-37" placeholder="Điền từ..."><button class="btn-chk" onclick="checkFill(37, ['colloquial terminology'], 'p3-C')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-37">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-C')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> colloquial terminology</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"Scientists often employ colloquial terminology, which they then assign a specific meaning..." (Paragraph C)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-38">
+    <div class="q-top"><span class="q-num">38</span><span class="q-txt">For example, uncertainty is not about 38 ________ limitations...</span><span id="stat-38"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-38" placeholder="Điền từ..."><button class="btn-chk" onclick="checkFill(38, ['intrinsic'], 'p3-D')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-38">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-D')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> intrinsic</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"it is not about intrinsic limitations on any particular measurement..." (Paragraph D)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-39">
+    <div class="q-top"><span class="q-num">39</span><span class="q-txt">...limitations on any particular 39 ________ .</span><span id="stat-39"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-39" placeholder="Điền từ..."><button class="btn-chk" onclick="checkFill(39, ['measurement'], 'p3-D')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-39">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-D')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> measurement</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"limitations on any particular measurement..." (Paragraph D)</i></li></ul>
+    </div>
+  </div>
+
+  <div class="q-card" id="card-40">
+    <div class="q-top"><span class="q-num">40</span><span class="q-txt">a good example can be the theory of 40 ________ .</span><span id="stat-40"></span></div>
+    <div class="fill-row"><input type="text" class="inp-box" id="ctrl-40" placeholder="Điền từ..."><button class="btn-chk" onclick="checkFill(40, ['general relativity'], 'p3-E')">Check</button></div>
+    <div class="detailed-exp-card" id="exp-40">
+      <div class="exp-main-title"><span>⚡ GIẢI THÍCH CHI TIẾT</span><button class="btn-loc" onclick="locateTarget('p3-E')">🎯 Dẫn chứng</button></div>
+      <div class="exp-trans-quote">💬 <b>Đáp án:</b> general relativity</div>
+      <ul class="exp-bullet-desc"><li><b>Dẫn chứng:</b> <i>"develop the correct version of his theory of general relativity." (Paragraph E)</i></li></ul>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+
+    <!-- SUBMIT BAR -->
+    <div style="text-align:center; margin-top:10px;">
+      <button class="btn-timer" style="padding: 12px 36px; font-size: 15px; border-radius: 50px;" onclick="showResult()">🏁 NỘP BÀI THI & XEM TỔNG KẾT</button>
+    </div>
+
+    <!-- 5. FOOTER BANNER -->
+    <footer class="footer-promo">
+      <div class="circle-icon">📞</div>
+      <div>
+        <div style="font-size: 15px; font-weight: 900;">
+          PH HS đăng kí học tiếng anh Khối 1 đến 12, IELTS vui lòng liên hệ Ms Lê Hằng English —
+          <span class="pill-badge">💬 zalo 0584 965 348</span>
+        </div>
+        <div style="font-size: 12.5px; font-weight: 700; opacity: 0.95; margin-top: 3px;">
+          📍 Online + Offline tại Linh Đàm · Hệ thống web bài tập độc lạ, chấm tự động, giải chi tiết siêu đẹp!
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- POPUP MODAL RESULT -->
+  <div class="modal-bg" id="modalBg">
+    <div class="modal-box">
+      <div style="font-size: 50px;">🎉</div>
+      <h2 style="font-size: 22px; font-weight: 900; margin-top: 6px;">KẾT QUẢ BÀI THI</h2>
+      <div class="timer-txt" style="font-size: 40px; margin: 10px 0;" id="modalScoreTxt">0 / 40</div>
+      <p style="font-size: 14px; font-weight: 700; color: #475569; line-height: 1.45;" id="modalMsg"></p>
+      <button class="btn-timer" style="margin-top:14px; padding:10px 24px; border-radius:30px;" onclick="document.getElementById('modalBg').style.display='none'">Xem lại bài thi & Dẫn chứng</button>
+    </div>
+  </div>
+
+  <script>
+    const userState = {};
+    const totalQ = 40;
+
+    let actx = null;
+    function playAudio(ok) {
+      try {
+        if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+        if (actx.state === 'suspended') actx.resume();
+        const o = actx.createOscillator();
+        const g = actx.createGain();
+        o.connect(g); g.connect(actx.destination);
+        if (ok) {
+          o.type = 'sine'; o.frequency.setValueAtTime(587, actx.currentTime);
+          g.gain.setValueAtTime(0.15, actx.currentTime);
+          g.exponentialRampToValueAtTime(0.001, actx.currentTime + 0.6);
+          o.start(); o.stop(actx.currentTime + 0.6);
+        } else {
+          o.type = 'sawtooth'; o.frequency.setValueAtTime(160, actx.currentTime);
+          g.gain.setValueAtTime(0.15, actx.currentTime);
+          g.exponentialRampToValueAtTime(0.001, actx.currentTime + 0.4);
+          o.start(); o.stop(actx.currentTime + 0.4);
+        }
+      } catch(e) {}
+    }
+
+    function switchTab(num) {
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById('p-content-' + i).style.display = (i === num) ? 'block' : 'none';
+        document.getElementById('ex-content-' + i).style.display = (i === num) ? 'block' : 'none';
+        document.getElementById('tab' + i + '-btn').classList.toggle('active', i === num);
+      }
+      document.getElementById('passagePane').scrollTop = 0;
+      document.getElementById('exercisePane').scrollTop = 0;
+    }
+
+    function checkSelect(qNum, correctVal, targetId) {
+      const sel = document.getElementById('ctrl-' + qNum);
+      const val = sel.value;
+      if (!val) return;
+      const ok = (val.trim().toLowerCase() === correctVal.trim().toLowerCase());
+      userState[qNum] = ok;
+      sel.className = 'sel-box ' + (ok ? 'correct' : 'wrong');
+      document.getElementById('stat-' + qNum).innerText = ok ? '✅' : '❌';
+      document.getElementById('exp-' + qNum).style.display = 'block';
+      playAudio(ok);
+      if (ok && window.confetti) confetti({ particleCount: 25, spread: 50 });
+      updateStats();
+    }
+
+    function checkFill(qNum, correctArr, targetId) {
+      const inp = document.getElementById('ctrl-' + qNum);
+      const val = inp.value.trim().toLowerCase();
+      if (!val) return;
+      const ok = correctArr.some(c => c.toLowerCase() === val);
+      userState[qNum] = ok;
+      inp.className = 'inp-box ' + (ok ? 'correct' : 'wrong');
+      document.getElementById('stat-' + qNum).innerText = ok ? '✅' : '❌';
+      document.getElementById('exp-' + qNum).style.display = 'block';
+      playAudio(ok);
+      if (ok && window.confetti) confetti({ particleCount: 25, spread: 50 });
+      updateStats();
+    }
+
+    function checkMC(qNum, selectedLetter, correctLetter, targetId) {
+      const ok = (selectedLetter === correctLetter);
+      userState[qNum] = ok;
+      const card = document.getElementById('card-' + qNum);
+      const btns = card.querySelectorAll('.mc-opt');
+      btns.forEach(b => {
+        const letter = b.innerText.trim()[0];
+        if (letter === correctLetter) b.className = 'mc-opt correct';
+        else if (letter === selectedLetter) b.className = 'mc-opt wrong';
+      });
+      document.getElementById('stat-' + qNum).innerText = ok ? '✅' : '❌';
+      document.getElementById('exp-' + qNum).style.display = 'block';
+      playAudio(ok);
+      if (ok && window.confetti) confetti({ particleCount: 25, spread: 50 });
+      updateStats();
+    }
+
+    function toggleT(id) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function locateTarget(targetId) {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('flash-target');
+        setTimeout(() => el.classList.remove('flash-target'), 2200);
+      }
+    }
+
+    function updateStats() {
+      const answered = Object.keys(userState).length;
+      const score = Object.values(userState).filter(x => x).length;
+      document.getElementById('scoreBadge').innerText = '★ ' + score + '/' + totalQ;
+      document.getElementById('countBadge').innerText = answered + '/' + totalQ + ' đã làm';
+      document.getElementById('progressFill').style.width = (answered / totalQ * 100) + '%';
+    }
+
+    // =========================================================================
+    // TÍNH NĂNG HIGHLIGHT CHUẨN: BÔI ĐEN LẦN 1 -> TÔ MÀU, BÔI ĐEN LẦN 2 -> XÓA
+    // TUYỆT ĐỐI KHÔNG LÀM DÃN KHOẢNG CÁCH CHỮ (LETTER-SPACING KHÔNG ĐỔI)
+    // =========================================================================
+    document.addEventListener('mouseup', () => {
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || sel.rangeCount === 0) return;
+      if (sel.toString().trim().length < 1) return;
+
+      const range = sel.getRangeAt(0);
+      let container = range.commonAncestorContainer;
+      if (container.nodeType === 3) container = container.parentNode;
+
+      // 1. Nếu vùng bôi đen đang nằm trong một span highlight có sẵn -> BỎ HIGHLIGHT
+      if (container.classList && container.classList.contains('user-highlighted')) {
+        const parent = container.parentNode;
+        while (container.firstChild) {
+          parent.insertBefore(container.firstChild, container);
+        }
+        parent.removeChild(container);
+        parent.normalize();
+        sel.removeAllRanges();
+        return;
+      }
+
+      // 2. Nếu vùng chọn bao trùm một hoặc nhiều phần tử highlight bên trong -> GỠ BỎ
+      const highlightedInside = container.querySelectorAll ? container.querySelectorAll('.user-highlighted') : [];
+      let foundIntersect = false;
+      highlightedInside.forEach(span => {
+        if (sel.containsNode(span, true)) {
+          foundIntersect = true;
+          const p = span.parentNode;
+          while (span.firstChild) p.insertBefore(span.firstChild, span);
+          p.removeChild(span);
+          p.normalize();
+        }
+      });
+
+      if (foundIntersect) {
+        sel.removeAllRanges();
+        return;
+      }
+
+      // 3. Nếu chưa có highlight -> TẠO HIGHLIGHT MỚI (KHÔNG LÀM NHẢY KÝ TỰ / CHỮ)
+      try {
+        const span = document.createElement('span');
+        span.className = 'user-highlighted';
+        span.title = 'Bôi đen lại để xóa highlight';
+        range.surroundContents(span);
+        sel.removeAllRanges();
+      } catch (e) {
+        // Dự phòng vùng chọn giao thoa nhiều thẻ
+      }
+    });
+
+    // Countdown Timer 20:00
+    let sec = 1200, timer = null, isRun = false;
+    function toggleTimer() {
+      const btn = document.getElementById('btnTimer');
+      if (!isRun) {
+        isRun = true; btn.innerText = 'TẠM DỪNG';
+        timer = setInterval(() => {
+          if (sec > 0) {
+            sec--;
+            const m = String(Math.floor(sec/60)).padStart(2,'0');
+            const s = String(sec%60).padStart(2,'0');
+            document.getElementById('timerTxt').innerText = m + ':' + s;
+          } else {
+            clearInterval(timer);
+            alert('Đã hết giờ làm bài, vui lòng nộp bài nhé!');
+          }
+        }, 1000);
+      } else {
+        isRun = false; btn.innerText = 'TIẾP TỤC';
+        clearInterval(timer);
+      }
+    }
+
+    function showResult() {
+      const score = Object.values(userState).filter(x => x).length;
+      document.getElementById('modalScoreTxt').innerText = score + ' / ' + totalQ;
+      let msg = '';
+      if (score >= 35) msg = 'Xuất sắc tuyệt đỉnh! Kỹ năng đọc quét và tư duy Paraphrase của bạn đạt chuẩn 9.0!';
+      else if (score >= 28) msg = 'Rất tốt! Bạn nắm bắt ngữ cảnh và bẫy đề rất chắc tay.';
+      else if (score >= 20) msg = 'Khá tốt! Bạn đã đi được một nửa chặng đường, hãy xem lại các dẫn chứng câu chưa đúng nhé.';
+      else msg = 'Hãy luyện tập thêm! Nhớ mở bản dịch từng đoạn để hiểu sâu cấu trúc bài đọc nhé.';
+      document.getElementById('modalMsg').innerText = msg;
+      document.getElementById('modalBg').style.display = 'flex';
+      if (window.confetti) confetti({ particleCount: 80, spread: 80 });
+    }
+  </script>
+</body>
+</html>
